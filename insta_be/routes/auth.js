@@ -4,6 +4,7 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/user')
 const router = express.Router()
 const { JWT_SECRET } = require('../keys')
+const requireLogin = require('../middleware/requireLogin')
 
 router.get('/',(req,res)=>{
     res.send('Insta here')
@@ -40,12 +41,6 @@ router.post('/signup',(req,res)=>{
         console.log(err)
     })
         
-
-
-
-
-
-
 })
 
 router.post('/signin',(req,res)=>{
@@ -74,5 +69,6 @@ router.post('/signin',(req,res)=>{
         console.log(err)
     })
 })
+
 
 module.exports = router;
